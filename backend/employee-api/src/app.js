@@ -1,7 +1,7 @@
 /**
  * arquivo: app.js
  * descrição: arquivo responsável por fazer a conexão com o aquivo server.js
- * data14/11/2025
+ * data: 14/11/2025
  * author: Beatriz Brandão <beatrizvsbrandao@gmail.com>
  */
 

@@ -1,7 +1,7 @@
 /**
  * arquivo: server.js
  * descrição: arquivo responsável por toda a configuração e execução do Back-End ('Employee')
- * data14/11/2025
+ * data: 14/11/2025
  * author: Beatriz Brandão <beatrizvsbrandao@gmail.com>
  */
 
