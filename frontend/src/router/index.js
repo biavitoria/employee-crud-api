@@ -4,17 +4,17 @@ import NProgress from 'nprogress';
 const routes = [
   {
     path: '/',
-    name: 'Create New Employee',
+    name: 'home',
     component: () => import('../components/pages/create-employee/CreateEmployeeComponent.vue'),
   },
   {
     path: '/list-employees',
-    name: 'List All Employees',
+    name: 'list',
     component: () => import('../components/pages/list-employee/ListEmployeeComponent.vue'),
   },
   {
     path: '/edit-temployee/:id',
-    name: 'Update Employee',
+    name: 'update',
     component: () => import('../components/pages/edit-employee/EditEmployeeComponent.vue'),
   },
 ];

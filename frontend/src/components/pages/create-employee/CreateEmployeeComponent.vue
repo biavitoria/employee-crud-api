@@ -103,6 +103,7 @@
           <!-- FIM BLOCO: Employee Registration -->
           <div class="mb-3">
             <button
+              @click="submitNewEmployee"
               class="btn btn-primary">
               <font-awesome-icon :icon="['fas', 'user-plus']"/> Employee
             </button>
@@ -114,6 +115,7 @@
 </template>
 
 <script>
+import EmployeeServices from '@/services/EmployeeServices';
 import { useVuelidate } from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 
@@ -123,11 +125,11 @@ export default {
   data() {
     return {
       employeeForm: {
-        name: '',
-        job_role: '',
-        salary: '',
-        birth: '',
-        employee_registration: '',
+        name: null,
+        job_role: null,
+        salary: null,
+        birth: null,
+        employee_registration: null,
       },
       isSubmitted: false,
     };
@@ -150,6 +152,19 @@ export default {
       this.v$.$touch();
       if (this.v$.$invalid) {
         return;
+      }
+    },
+    async submitNewEmployee() {
+      try {
+        await EmployeeServices.createNewEmployee(this.employeeForm);
+        // Quando clicar no botão sumbit, será direcionado
+        // para a página de listar todos os funcionários
+        // ('/list-employees' dentro de router/index.js cujo name é 'list')
+        this.$router.push({
+          name: 'list',
+        });
+      } catch (error) {
+        console.log(error);
       }
     },
   },

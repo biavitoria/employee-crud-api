@@ -19,6 +19,7 @@
     "bootstrap": "^5.3.8",
     "core-js": "^3.8.3",
     "nprogress": "^0.2.0",
+    "sweetalert2": "^11.26.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vue-sweetalert2": "^5.0.11"

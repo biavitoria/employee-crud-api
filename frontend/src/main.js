@@ -12,6 +12,7 @@ import router from './router';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'nprogress/nprogress.css';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 library.add(fas, far, fab);
 
