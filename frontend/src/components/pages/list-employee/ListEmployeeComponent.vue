@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="employee in employees" :key="employee._id">
+          <tr v-for="employee in employees" :key="employee.employee_id">
             <td>{{ employee.name }}</td>
             <td>{{ employee.job_role }}</td>
             <td>{{ employee.salary }}</td>
@@ -21,10 +21,10 @@
             <td>{{ employee.employee_registration }}</td>
             <td>
               <router-link
-                :to="{ name: 'update', params: { id: employee._id}}"
+                :to="{ name: 'update', params: { id: employee.employee_id}}"
                 class="btn btn-success">
+                <font-awesome-icon :icon="['fas', 'user-edit']"/> Edit
               </router-link>
-              <font-awesome-icon :icon="['fas', 'user-edit']"/> Edit
             </td>
             <td>
               <button class="btn btn-danger">
@@ -37,13 +37,6 @@
     </div>
 </template>
 
-<script>
-export default {
-  name: 'ListEmpoyeeConponent',
-  data() {
-    return {
-      employees: [],
-    };
-  },
-};
-</script>
+<script src="./ListEmployee.js"></script>
+
+<style src="" scoped></style>
