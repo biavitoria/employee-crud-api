@@ -20,6 +20,6 @@ app.use(express.json({ type: 'application/vnd.api+json' }));
 app.use(cors());
 
 app.use(index);
-// app.use('/api/', employeeRoute);
+app.use('/api/', employeeRoute);
 
 module.exports = app;

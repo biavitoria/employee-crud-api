@@ -1,5 +1,5 @@
 /**
- * arquivo: confing/database.js
+ * arquivo: config/database.js
  * descrição: arquivo responsável pelas 'connectionStrings' (Cosmos DB & PostgreSQL)
  * data: 14/11/2025
  * author: Beatriz Brandão <beatrizvsbrandao@gmail.com>
@@ -12,11 +12,12 @@ dotenv.config();
 
 // ==> Conexão com a Base de Dados:
 const pool = new Pool({
-    connectionStrings: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL
 });
 
-pool.on('error', (err) => {
-    console.error('Erro inesperado no poll de conexões:', err);
+pool.on('error', (err, client) => {
+    console.error('Unexpected error on idle client', err);
+    process.exit(-1);
 });
 
 pool.on('connect', () => {
