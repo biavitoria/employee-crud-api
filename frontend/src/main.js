@@ -16,4 +16,11 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 library.add(fas, far, fab);
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router, VueSweetalert2).mount('#app');
+const app = createApp(App);
+
+app.component('font-awesome-icon', FontAwesomeIcon);
+
+app.use(router);
+app.use(VueSweetalert2);
+
+app.mount('#app');

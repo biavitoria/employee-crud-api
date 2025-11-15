@@ -114,59 +114,6 @@
   </div>
 </template>
 
-<script>
-import EmployeeServices from '@/services/EmployeeServices';
-import { useVuelidate } from '@vuelidate/core';
-import { required } from '@vuelidate/validators';
+<script src="./CreateEmployee.js"></script>
 
-export default {
-  name: 'CreateEmployeeComponent',
-  setup: () => ({ v$: useVuelidate() }),
-  data() {
-    return {
-      employeeForm: {
-        name: null,
-        job_role: null,
-        salary: null,
-        birth: null,
-        employee_registration: null,
-      },
-      isSubmitted: false,
-    };
-  },
-  validations() {
-    return {
-      employeeForm: {
-        name: { required },
-        job_role: { required },
-        salary: { required },
-        birth: { required },
-        employee_registration: { required },
-      },
-    };
-  },
-  methods: {
-    handleSubmitForm() {
-      this.isSubmitted = true;
-
-      this.v$.$touch();
-      if (this.v$.$invalid) {
-        return;
-      }
-    },
-    async submitNewEmployee() {
-      try {
-        await EmployeeServices.createNewEmployee(this.employeeForm);
-        // Quando clicar no botão sumbit, será direcionado
-        // para a página de listar todos os funcionários
-        // ('/list-employees' dentro de router/index.js cujo name é 'list')
-        this.$router.push({
-          name: 'list',
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-};
-</script>
+<style src="" scoped></style>

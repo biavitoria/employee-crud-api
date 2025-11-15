@@ -53,7 +53,7 @@ export default {
   */
   async updateEmployee(id) {
     try {
-      const response = await Api().put((`/employee/${id}`));
+      const response = await Api().put((`/employees/${id}`));
       return response.data;
     } catch (error) {
       return console.log(error);
