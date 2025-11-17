@@ -26,9 +26,17 @@ export default {
     },
 
     async updateFormEmployee() {
-      const { id } = this.$route.params;
-      await EmployeeServices.updateEmployee(id, this.employeeForm);
-      this.$router.push({ name: 'list' });
+      await EmployeeServices.updateEmployee(this.employeeForm);
+      this.$swal({
+        title: 'Employee Updated Successfully!',
+        icon: 'success',
+        showConfirmButton: true,
+        allowOutsideClick: false,
+        allowEnterKey: false,
+        allowEscapeKey: false,
+      }).then(() => {
+        this.$router.push({ name: 'list' });
+      });
     },
   },
 };
