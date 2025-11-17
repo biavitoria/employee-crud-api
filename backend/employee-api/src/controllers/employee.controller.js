@@ -25,15 +25,32 @@ exports.createEmployee = async(req, res) => {
 
 // ==> Método responsável por listar todos os 'Employees'
 exports.listAllEmployees = async(req, res) => {
-    const response = await db.query('SELECT * FROM  employee ORDER BY name ASC');
+    const response = await db.query(`SELECT 
+                                        employee_id, 
+                                        name, job_role, 
+                                        salary, 
+                                        employee_registration, 
+                                        to_char(birth, 'yyyy-MM-dd') as birth 
+                                    FROM  employee ORDER BY name ASC`);
     res.status(200).send(response.rows);
 }
 
 // ==> Método responsável por listar um determinado 'Employee' por Id
 exports.findEmployeeById = async(req, res) => {
-    const employeeId =  req.params.id;
-    const response = await db.query('SELECT * FROM employee WHERE employee_id = $1', [employeeId]);
-    res.status(200).send(response.rows);
+    const { id } = req.params;
+    const { rows } = await db.query(`SELECT 
+                                        employee_id, 
+                                        name, 
+                                        job_role, 
+                                        salary, 
+                                        employee_registration, 
+                                        to_char(birth, 'yyyy-MM-dd') as birth 
+                                    FROM employee WHERE employee_id = $1`, [id]);
+    if (!rows.length) {
+        throw 'employee_not_found';
+        
+    }
+    res.status(200).send(rows[0]);
 }
 
 // ==> Método responsável por atualizar um determinado 'Employee' por Id
