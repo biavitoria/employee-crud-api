@@ -13,11 +13,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="employee in employees" :key="employee.employee_id">
+          <tr class="text-center" v-for="employee in employees" :key="employee.employee_id">
             <td>{{ employee.name }}</td>
             <td>{{ employee.job_role }}</td>
             <td>{{ employee.salary }}</td>
-            <td>{{ employee.birth }}</td>
+            <td>{{ formatDateBR(employee.birth) }}</td>
             <td>{{ employee.employee_registration }}</td>
             <td>
               <router-link

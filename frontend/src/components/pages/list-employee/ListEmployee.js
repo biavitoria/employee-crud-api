@@ -24,6 +24,13 @@ export default {
       this.employees = response;
     },
 
+    formatDateBR(date) {
+      if (!date) return '';
+
+      const [year, mounth, day] = date.split('-');
+      return `${day}/${mounth}/${year}`;
+    },
+
     async removeEmployee(id) {
 		  this.$swal({
 			  title: 'Are you sure you want to remove the employee?',
