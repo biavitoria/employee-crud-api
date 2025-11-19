@@ -103,14 +103,14 @@ exports.updateEmployeeById = async(req, res) => {
             });
         }
 
-        const response = await db.query('UPDATE employee SET name = $1, job_role = $2, salary = $3, birth = $4, employee_registration = $5 WHERE employee_id = $6', 
+        const response = await db.query('UPDATE employee SET name = $1, job_role = $2, salary = $3, birth = $4, employee_registration = $5 WHERE employee_id = $6 RETURNING *', 
         [name, job_role, salary, birth, employee_registration, employeeId]
     );
 
         return res.status(200).json({
             success: true,
             message: 'Employee updated successfully.',
-            employee: rows[0]
+            employee: response.rows[0]
         });
     } catch (error) {
         console.error('Erro em updateEmployeeById:', error);

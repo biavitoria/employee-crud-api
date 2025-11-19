@@ -22,7 +22,7 @@ export default {
     async getEmployeeById() {
       const { id } = this.$route.params;
       const response = await EmployeeServices.getEmployeesId(id);
-      this.employeeForm = { ...response };
+      this.employeeForm = { ...response.employee };
     },
 
     async updateFormEmployee() {
