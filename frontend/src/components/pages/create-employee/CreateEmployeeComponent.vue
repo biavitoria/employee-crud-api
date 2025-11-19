@@ -5,7 +5,7 @@
         <h3>Add New Employee</h3>
       </div>
       <div class="card-body">
-        <form @submit.prevent="handleSubmitForm()">
+        <form @submit.prevent="submitNewEmployee">
 
           <!-- INICIO BLOCO: Employee Name -->
            <div class="mb-3">
@@ -103,7 +103,6 @@
           <!-- FIM BLOCO: Employee Registration -->
           <div class="mb-3">
             <button
-              @click="submitNewEmployee"
               class="btn btn-primary">
               <font-awesome-icon :icon="['fas', 'user-plus']"/> Employee
             </button>
